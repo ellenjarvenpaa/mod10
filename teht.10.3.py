@@ -46,7 +46,7 @@ class Talo:
 kerros = 1
 t = Talo(1, 12, 4)
 h = Hissi(1, 12, 1)
-while kerros < 11:
+while kerros < 13:
     hissi = int(input("Valitse hissi:(1-4) "))
     kohde = int(input("Mihin kerrokseen haluat?(1-12) "))
     print(f"Käytit hissiä {hissi} ja olet kerroksessa {kohde}.")
