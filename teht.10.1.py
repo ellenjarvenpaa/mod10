@@ -14,16 +14,16 @@ class Hissi:
         while self.atm != kerros:
             self.atm -= 1
             if self.atm == kerros:
-                print(self.atm)
+                print("Olet kerroksessa", (self.atm))
 
     def kerros_ylos(self):
         while self.atm != kerros:
             self.atm += 1
             if self.atm == kerros:
-                print(self.atm)
+                print("Olet kerroksessa", (self.atm))
 
 # pääohjelma
 
 h = Hissi(1, 10, 1)
-kerros = int(input("Mihin kerrokseen haluat?"))
+kerros = int(input("Mihin kerrokseen haluat?(1-10) "))
 h.siirry_kerrokseen(kerros)

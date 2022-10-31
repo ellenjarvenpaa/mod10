@@ -4,23 +4,23 @@ class Hissi:
         self.ylin = ylin
         self.atm = atm
 
-    def siirry_kerrokseen(self, kerros):
-        if self.atm < kerros:
+    def siirry_kerrokseen(self, kohde):
+        if self.atm < kohde:
             Hissi.kerros_ylos(h)
-        if self.atm > kerros:
+        if self.atm > kohde:
             Hissi.kerros_alas(h)
 
     def kerros_alas(self):
-        while self.atm != kerros:
+        while self.atm != kohde:
             self.atm -= 1
-            if self.atm == kerros:
-                print(self.atm)
+            if self.atm == kohde:
+                print("Olet kerroksessa", (self.atm))
 
     def kerros_ylos(self):
-        while self.atm != kerros:
+        while self.atm != kohde:
             self.atm += 1
-            if self.atm == kerros:
-                print(self.atm)
+            if self.atm == kohde:
+                print("Olet kerroksessa", (self.atm))
 
 class Talo:
     def __init__(self, alin, ylin, h_lkm):
@@ -32,12 +32,19 @@ class Talo:
             self.hissit.append(Hissi(1, 10, 1))
 
     def aja_hissia(self, h_num, kohde):
+        elevator = self.hissit[h_num - 1]
+        print(f"Ajetaan hissiä {h_num}")
+        elevator.siirry_kerrokseen(kohde)
+
+    def palohälytys(self):
+        for h in self.hissit:
+            h.siirry_kerrokseen(self.alin)
 
 
 # pääohjelma
 
 t = Talo(1, 10, 4)
 h = Hissi(1, 10, 1)
-kerros = int(input("Mihin kerrokseen haluat?"))
-h.siirry_kerrokseen(kerros)
-t.aja_hissia(kerros)
+hissi = int(input("Valitse hissi:(1-4) "))
+kohde = int(input("Mihin kerrokseen haluat?(1-10) "))
+t.aja_hissia(hissi, kohde)
